@@ -1,0 +1,18 @@
+<h1>{{ options }}</h1>
+<hr>
+<ul class="list-group">
+
+    <li [routerLink]="routeGet" class="list-group-item">
+      <button type="button" class="btn btn-primary">get user</button>
+    </li>
+    <li [routerLink]="routeCreate" class="list-group-item">
+      <button type="button" class="btn btn-secondary">create user</button>
+    </li>
+    <li [routerLink]="routeUpdate" class="list-group-item">
+      <button type="button" class="btn btn-success">update user</button>
+    </li>
+    <li [routerLink]="routeDelete" class="list-group-item">
+      <button type="button" class="btn btn-danger">delete user</button>
+    </li>
+    <div><button type="button" (click)="logout()">sign up</button></div>
+</ul>

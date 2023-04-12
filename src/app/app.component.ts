@@ -10,11 +10,6 @@ export class AppComponent {
 
   constructor(private users: GetUserProfileUseCase) { }
 
-  getAllUsers() {
-    this.users.execute().subscribe(data => {
-      console.log(data);
-    });
-  }
 
 }
 
