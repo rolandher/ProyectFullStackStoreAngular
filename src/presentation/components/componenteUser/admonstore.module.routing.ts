@@ -1,14 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { GetUserComponent } from './components/componenteUser/get/getUser/getUser.component';
-import { CrearUserComponent } from './components/componenteUser/create/createUser/createUser.component';
-import { UpdateUserComponent } from './components/componenteUser/update/updateUser/updateUser.component';
-import { DeleteUserComponent } from './components/componenteUser/delete/deleteUser/deleteUser.component';
-import { LayoutsComponent } from './layouts/layouts/layouts.component';
+import { GetUserComponent } from './get/getUser/getUser.component';
+import { CrearUserComponent } from './create/createUser/createUser.component';
+import { UpdateUserComponent } from './update/updateUser/updateUser.component';
+import { DeleteUserComponent } from './delete/deleteUser/deleteUser.component';
+import { LayoutsComponent } from '../../design/layouts/layouts.component';
 
 
-//componentes
-
+//component user
 
 const routes: Routes = [
   {

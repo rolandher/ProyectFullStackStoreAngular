@@ -1,3 +1,16 @@
-<p>
-  getUser works!
-</p>
+<h1 class="text-center">
+  Informacion del usuario
+</h1>
+<div class="row">
+
+  <div *ngFor="let user of userList" class="col-md-4 col-sm-6 animate__animated animate__fadeIn g-4">
+
+      <div class="card">
+          <div class="card-body">
+              <p class="card-text" [routerLink]="['../listar', user]">
+                {{ user.user_id }} {{ user.firebase_id }} - {{ user.names }} - {{ user.surNames }} - {{ user.email }} - {{ user.phone }} - {{ user.gender }} - {{ user.state }}
+              </p>
+          </div>
+      </div>
+  </div>
+</div>

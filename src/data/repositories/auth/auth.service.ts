@@ -12,17 +12,18 @@ constructor(private router: Router, private afAuth: AngularFireAuth) { }
 
 GoogleAuth() {
   return this.AuthLogin(new auth.GoogleAuthProvider()).then((res: any) => {
-    this.router.navigate(['dashboard']);
+    this.router.navigate(['admonstore']);
   });
 }
 // Auth logic to run auth providers
 private AuthLogin(provider: any) {
   return this.afAuth.signInWithPopup(provider)
     .then((result) => {
-      this.router.navigate(['dashboard']);
       console.log(result);
       localStorage.setItem('user', JSON.stringify(result.user));
       localStorage.setItem('uid', result.user?.uid as string);
+      console.log(localStorage.getItem('user'));
+      this.router.navigate(['admonstore']);
     })
     .catch((error) => {
       window.alert(error);

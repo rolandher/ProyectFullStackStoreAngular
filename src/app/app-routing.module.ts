@@ -14,6 +14,8 @@ const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 const redirectLoggedInToDashboard = () => redirectLoggedInTo(['admonstore']);
 
 
+
+
 const routes: Routes = [
   {
     path: 'login', //http://localhost:7116/login
@@ -21,11 +23,17 @@ const routes: Routes = [
     canActivate: [AngularFireAuthGuard],
     data: { authGuardPipe: redirectLoggedInToDashboard },
   },
+  // {
+  //   path: 'dashboard', //http://localhost:7116/dashboard
+  //   component: DashboardComponent,
+  //   canActivate: [AngularFireAuthGuard],
+  //   data: { authGuardPipe: redirectUnauthorizedToLogin },
 
+  // },
   {
     path: 'admonstore',
     loadChildren: () =>
-      import('../presentation/admonstore.module').then(
+      import('../presentation/components/componenteUser/admonstore.module').then(
         module => module.Admonstore
       ),
   },

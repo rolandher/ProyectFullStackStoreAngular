@@ -10,12 +10,11 @@ import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFireModule } from '@angular/fire/compat';
-import { LoginUserComponent } from 'src/presentation/Login/loginUser/loginUser.component';
-import { DashboardComponent } from 'src/presentation/Login/dashboard/dashboard.component';
+
 
 
 @NgModule({
-  declarations: [LoginUserComponent, DashboardComponent],
+  declarations: [AppComponent],
 
   imports: [
     BrowserModule,

@@ -1,5 +1,5 @@
 import { Mapper } from 'src/base/mapper';
-import { UserModel } from 'src/domain/models/user.model';
+import { UserModel } from 'src/domain/interfaces/user.model';
 import { UserEntity } from '../entities/user-entity';
 
 
