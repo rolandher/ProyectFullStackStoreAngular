@@ -14,11 +14,13 @@ export class MiddleComponent {
   routeUpdate: string[];
   routeDelete: string[];
 
-  constructor( private readonly authService: AuthService){
+
+  constructor( private readonly authService: AuthService ){
     this.routeGet = ['./get']
     this.routeCreate = ['./create']
     this.routeUpdate = ['./update']
     this.routeDelete = ['./delete']
+
   }
 
   logout(): void {

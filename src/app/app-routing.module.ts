@@ -21,34 +21,24 @@ const routes: Routes = [
     canActivate: [AngularFireAuthGuard],
     data: { authGuardPipe: redirectLoggedInToDashboard },
   },
-  // {
-  //   path: 'dashboard', //http://localhost:7116/dashboard
-  //   component: DashboardComponent,
-  //   canActivate: [AngularFireAuthGuard],
-  //   data: { authGuardPipe: redirectUnauthorizedToLogin },
-
-  // },
   {
     path: 'admonstore',
     loadChildren: () =>
       import('../presentation/components/componenteUser/admonstore.module').then(
-        module => module.Admonstore
-      ),
+        module => module.Admonstore),
+        canActivate: [AngularFireAuthGuard],
+        data: { authGuardPipe: redirectUnauthorizedToLogin },
+
   },
   {
-    path: 'store',
+    path: 'admonstore/store',
     loadChildren: () =>
       import('../presentation/components/componentsStore/store.module').then(
-        module => module.Store
-      ),
+        module => module.Store),
+        canActivate: [AngularFireAuthGuard],
+        data: { authGuardPipe: redirectUnauthorizedToLogin },
   },
-  {
-    path: 'location',
-    loadChildren: () =>
-      import('../presentation/components/componentLocation/location.module').then(
-        module => module.Location
-      ),
-  },
+
 
 ];
 

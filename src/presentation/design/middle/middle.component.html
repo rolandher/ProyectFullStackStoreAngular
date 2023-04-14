@@ -1,30 +1,27 @@
-<table class="table table-bordered my-table">
-  <thead>
-    <tr>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
 
-      <td><a [routerLink]="routeGet" class="btn btn-primary">Get User</a></td>
-    </tr>
-    <tr>
+  <table class="table table-bordered my-table">
+    <thead>
+      <tr>
+        <th>Descripción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a [routerLink]="routeGet" class="btn btn-primary">Get User</a></td>
+      </tr>
+      <tr>
+        <td><a [routerLink]="routeCreate" class="btn btn-secondary">Create User</a></td>
+      </tr>
+      <tr>
+        <td><a [routerLink]="routeUpdate" class="btn btn-success">Update User</a></td>
+      </tr>
+      <tr>
+        <td><a [routerLink]="routeDelete" class="btn btn-danger">State User</a></td>
+      </tr>
+    </tbody>
+  </table>
 
-      <td><a [routerLink]="routeCreate" class="btn btn-secondary">Create User</a></td>
-    </tr>
-    <tr>
-
-      <td><a [routerLink]="routeUpdate" class="btn btn-success">Update User</a></td>
-    </tr>
-    <tr>
-
-      <td><a [routerLink]="routeDelete" class="btn btn-danger">Delete User</a></td>
-    </tr>
-    <tr>
-  </tbody>
-</table>
-<td><button type="button" (click)="logout()" class="btn btn-info">Sign Up</button></td>
+<button type="button" (click)="logout()" class="btn btn-info">Logout</button>
 
 
 

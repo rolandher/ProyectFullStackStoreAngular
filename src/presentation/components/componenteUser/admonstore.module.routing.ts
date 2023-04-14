@@ -7,6 +7,7 @@ import { DeleteUserComponent } from './delete/deleteUser/deleteUser.component';
 import { LayoutsComponent } from '../../design/layouts/layouts.component';
 
 
+
 //component user
 
 const routes: Routes = [

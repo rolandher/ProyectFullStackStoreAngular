@@ -8,5 +8,8 @@ export const environment = {
     messagingSenderId: '918010151979',
   },
   production: false,
-  urladmonStore : "https://localhost:7116/api/User"
+  urladmonStore : "https://localhost:7116/api/User",
+  urlStore : "https://localhost:7079/api/Store",
+  urlLocation : "https://localhost:7079/api/Location",
+  urlProduct : "https://localhost:7079/api/Product",
 };

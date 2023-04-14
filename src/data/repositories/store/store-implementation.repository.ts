@@ -21,10 +21,10 @@ export class StoreImplementationRepository extends StoreRepository {
     }
 
     getStoreAsync(): Observable<StoreModel[]> {
-        return this.httpClient.get<StoreModel[]>(environment.urladmonStore)
+        return this.httpClient.get<StoreModel[]>(environment.urlStore)
           }
     createStoreAsync(store: NewStoreModel): Observable<NewStoreModel> {
-        return this.httpClient.post<NewStoreModel>(environment.urladmonStore, store)
+        return this.httpClient.post<NewStoreModel>(environment.urlStore, store)
     }
 
     SignOut() {

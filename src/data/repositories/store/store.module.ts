@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { UserRepository } from 'src/domain/repositories/user.repository';
 import { StoreRepository } from 'src/domain/repositories/store.repository';
 import { GetStoreProfileUseCase } from 'src/domain/usecases/storeCases/get-store-profile.usecase';
 import { CreateStoreProfileUseCase } from 'src/domain/usecases/storeCases/create-store-profile.usecase';

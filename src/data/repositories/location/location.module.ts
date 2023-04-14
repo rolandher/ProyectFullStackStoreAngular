@@ -5,6 +5,7 @@ import { GetLocationProfileUseCase } from 'src/domain/usecases/locationCases/get
 import { LocationRepository } from 'src/domain/repositories/location.repository';
 import { LocationImplementationRepository } from './location-implementation.repository';
 import { CreateLocationProfileUseCase } from 'src/domain/usecases/locationCases/create-location-profile.usecase';
+import { GetLocationByIdProfileUseCase } from 'src/domain/usecases/locationCases/getById-location-profile.usecase';
 
 
 
@@ -24,11 +25,20 @@ export const createLocationProfileUseCaseProvider = {
     deps: [LocationRepository],
 };
 
+const getLocationByIdProfileUseCaseFactory =
+(locationRepo: LocationRepository) => new GetLocationByIdProfileUseCase(locationRepo);
+export const getLocationByIdProfileUseCaseProvider = {
+    provide: GetLocationByIdProfileUseCase,
+    useFactory: getLocationByIdProfileUseCaseFactory,
+    deps: [LocationRepository],
+};
+
 
 @NgModule({
     providers: [
       getLocationProfileUseCaseProvider,
       createLocationProfileUseCaseProvider,
+      getLocationByIdProfileUseCaseProvider,
         { provide: LocationRepository, useClass: LocationImplementationRepository },
     ],
     imports: [

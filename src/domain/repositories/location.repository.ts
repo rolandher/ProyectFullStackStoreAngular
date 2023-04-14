@@ -5,6 +5,6 @@ import { NewLocationModel } from '../interfaces/locationInterface/newLocation.mo
 
 export abstract class LocationRepository {
     abstract getLocationAsync(): Observable<LocationModel[]>;
-    // abstract getStoreByIdAsync(id: number): Observable<StoreModel>;
+    abstract getLocationByIdAsync(id: number): Observable<LocationModel>;
     abstract createLocationAsync(location: NewLocationModel): Observable<NewLocationModel>;
 }

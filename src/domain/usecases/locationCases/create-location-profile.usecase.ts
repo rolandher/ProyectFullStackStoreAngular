@@ -13,5 +13,4 @@ export class CreateLocationProfileUseCase implements UseCase<NewLocationModel, N
         return this.locationRepository.createLocationAsync(location);
   }
 
-
 }
