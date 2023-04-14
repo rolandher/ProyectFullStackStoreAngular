@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { GetStoreComponent } from './getStore/getStore/getStore.component';
 import { CreateStoreComponent } from './createStore/createStore/createStore.component';
 import { StoreRoutes } from './store.module.routing';
+import { StoreModule } from 'src/data/repositories/store/store.module';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { StoreRoutes } from './store.module.routing';
     StoreRoutes,
     HttpClientModule,
     ReactiveFormsModule,
+    StoreModule
 
   ]
 })

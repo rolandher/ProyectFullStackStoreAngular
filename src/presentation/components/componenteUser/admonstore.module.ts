@@ -12,7 +12,7 @@ import { MiddleComponent } from '../../design/middle/middle.component';
 import { DashboardComponent } from '../../Login/dashboard/dashboard.component';
 import { LoginUserComponent } from '../../Login/loginUser/loginUser.component';
 import { LayoutsComponent } from '../../design/layouts/layouts.component';
-import { DataModule } from 'src/data/data.module';
+import { DataModule } from 'src/data/repositories/user/data.module';
 import { GetUserComponent } from './get/getUser/getUser.component';
 import { CrearUserComponent } from './create/createUser/createUser.component';
 import { UpdateUserComponent } from './update/updateUser/updateUser.component';

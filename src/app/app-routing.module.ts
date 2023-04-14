@@ -14,8 +14,6 @@ const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 const redirectLoggedInToDashboard = () => redirectLoggedInTo(['admonstore']);
 
 
-
-
 const routes: Routes = [
   {
     path: 'login', //http://localhost:7116/login
@@ -44,7 +42,13 @@ const routes: Routes = [
         module => module.Store
       ),
   },
-
+  {
+    path: 'location',
+    loadChildren: () =>
+      import('../presentation/components/componentLocation/location.module').then(
+        module => module.Location
+      ),
+  },
 
 ];
 
