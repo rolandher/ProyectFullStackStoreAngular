@@ -1,6 +1,6 @@
 export interface UserModel {
-  user_id: string;
-  firebase_id: string;
+  user_Id: string;
+  firebase_Id: string;
   names: string;
   surNames: string;
   email: string;

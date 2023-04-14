@@ -37,6 +37,14 @@ const routes: Routes = [
         module => module.Admonstore
       ),
   },
+  {
+    path: 'store',
+    loadChildren: () =>
+      import('../presentation/components/componentsStore/store.module').then(
+        module => module.Store
+      ),
+  },
+
 
 ];
 

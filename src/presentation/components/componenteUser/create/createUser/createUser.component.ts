@@ -1,10 +1,8 @@
-import { Component} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserImplementationRepository } from 'src/data/repositories/user/user-implementation.repository';
-import { NewUserModel } from 'src/domain/interfaces/newUser.model';
-import { UserModel } from 'src/domain/interfaces/user.model';
-import { CreateUserProfileUseCase } from 'src/domain/usecases/create-user-profile.usecase';
+import { NewUserModel } from 'src/domain/interfaces/userInterface/newUser.model';
+import { CreateUserProfileUseCase } from 'src/domain/usecases/userCases/create-user-profile.usecase';
 
 
 @Component({
@@ -14,39 +12,34 @@ import { CreateUserProfileUseCase } from 'src/domain/usecases/create-user-profil
 })
 export class CrearUserComponent {
   frmFormulario : FormGroup;
-  user: UserModel[];
+  userToCreate: NewUserModel[];
 
   constructor(private createUserProfileUseCase: CreateUserProfileUseCase, private router: Router){
-    this.user = [],
+    this.userToCreate = [];
     this.frmFormulario = new FormGroup({
-      user_id: new FormControl('', [
+      firebase_Id: new FormControl('', [
         Validators.required,
-        Validators.minLength(8),
-        Validators.maxLength(10)
-      ]),
-      firebase_id: new FormControl('', [
-        Validators.required,
-        Validators.minLength(41),
+        Validators.minLength(3),
         Validators.maxLength(45)
       ]),
       names: new FormControl('', [
         Validators.required,
-        Validators.minLength(50),
+        Validators.minLength(3),
         Validators.maxLength(50)
       ]),
-      surName: new FormControl('', [
+      surNames: new FormControl('', [
         Validators.required,
-        Validators.minLength(50),
+        Validators.minLength(3),
         Validators.maxLength(50)
       ]),
       email: new FormControl('', [
         Validators.required,
-        Validators.minLength(50),
+        Validators.minLength(3),
         Validators.maxLength(100)
       ]),
       phone : new FormControl('', [
         Validators.required,
-        Validators.minLength(10),
+        Validators.minLength(3),
         Validators.maxLength(10)
       ]),
       gender : new FormControl('', [
@@ -64,16 +57,19 @@ export class CrearUserComponent {
     });
   }
 
-  createUser(): void {
-    this.frmFormulario.get('isCompleted')?.setValue(JSON.parse(this.frmFormulario.get('isCompleted')?.value));
-    console.log(this.frmFormulario.getRawValue());
+  createUser(){
+    this.frmFormulario.get('state')?.setValue(JSON.parse(this.frmFormulario.get('state')?.value));
+    console.log(this.frmFormulario.getRawValue())
     this.createUserProfileUseCase.execute(this.frmFormulario.getRawValue()).subscribe({
-      next: (data) => {
-        console.log(data);
-        this.router.navigate(['/']);
+      next:(Item) =>{
+        console.log(Item);
+        this.router.navigate(['admonstore']);
       }
-  })
+    })
+  }
 }
 
 
-}
+
+
+

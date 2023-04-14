@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { GetUserProfileUseCase } from 'src/domain/usecases/get-user-profile.usecase';
+import { GetUserProfileUseCase } from 'src/domain/usecases/userCases/get-user-profile.usecase';
 
 @Component({
   selector: 'sofkaU-root',

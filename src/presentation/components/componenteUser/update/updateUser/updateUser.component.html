@@ -1,3 +1,62 @@
-<p>
-  updateUser works!
-</p>
+<h1 class="text-center">
+  Update User
+
+</h1>
+<form id="updateUser"
+(ngSubmit)=" updateUser()"
+[formGroup]="frmFormulario1" class="row g-3">
+
+<div class="form-floating mb-3">
+  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" formControlName ="user_id" name="user_id"></textarea>
+  <label for="floatingTextarea">user_id </label>
+  <p class="text-danger" *ngIf="frmFormulario1.get('user_id')?.hasError('required') &&
+  frmFormulario1.get('user_id')?.touched">user_id is required</p>
+
+  <div class="form-floating mb-3">
+      <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" formControlName ="firebase_Id" name="firebase_Id"></textarea>
+      <label for="floatingTextarea">firebase_Id </label>
+      <p class="text-danger" *ngIf="frmFormulario1.get('firebase_Id')?.hasError('required') &&
+      frmFormulario1.get('firebase_Id')?.touched">firebase_id is required</p>
+
+    <div class="form-floating mb-3">
+      <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" formControlName ="names" name="names"></textarea>
+      <label for="floatingTextarea">names </label>
+      <p class="text-danger" *ngIf="frmFormulario1.get('names')?.hasError('required') &&
+      frmFormulario1.get('names')?.touched">names is required</p>
+
+    <div class="form-floating mb-3">
+      <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" formControlName ="surNames" name="surNames"></textarea>
+      <label for="floatingTextarea">surNames </label>
+      <p class="text-danger" *ngIf="frmFormulario1.get('surNames')?.hasError('required') &&
+      frmFormulario1.get('surNames')?.touched">surName is required</p>
+
+    <div class="form-floating mb-3">
+      <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" formControlName ="email" name="email"></textarea>
+      <label for="floatingTextarea">email </label>
+      <p class="text-danger" *ngIf="frmFormulario1.get('email')?.hasError('required') &&
+      frmFormulario1.get('email')?.touched">email is required</p>
+
+    <div class="form-floating mb-3">
+      <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" formControlName ="phone" name="phone"></textarea>
+      <label for="floatingTextarea">phone </label>
+      <p class="text-danger" *ngIf="frmFormulario1.get('phone')?.hasError('required') &&
+      frmFormulario1.get('phone')?.touched">phone is required</p>
+
+    <div class="form-floating mb-3">
+      <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" formControlName ="gender" name="gender"></textarea>
+      <label for="floatingTextarea">gender </label>
+      <p class="text-danger" *ngIf="frmFormulario1.get('gender')?.hasError('required') &&
+      frmFormulario1.get('gender')?.touched">gender is required</p>
+
+    <div class="form-floating mb-3">
+        <select name="state" class="form-select" id="floatingSelect" aria-label="Floating label select example" formControlName ="state" name="state">
+        <option selected>State </option>
+        <option value=true>available</option>
+        <option value=false>not available</option>
+        </select>
+        <label for="floatingSelect">Select State</label>
+
+        <button class="btn btn-primary" type="submit" form = "updateUser">Submit form</button>
+
+    </div>
+    <input type="button" onclick="history.back()" name="back" value="back">

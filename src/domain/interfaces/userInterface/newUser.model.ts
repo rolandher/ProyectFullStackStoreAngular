@@ -1,6 +1,5 @@
-export interface UserEntity {
-  user_id: string;
-  firebase_id: string;
+export interface NewUserModel {
+  firebase_Id: string;
   names: string;
   surNames: string;
   email: string;

@@ -1,7 +1,7 @@
 import { Observable } from 'rxjs';
 import { UseCase } from 'src/base/use-case';
-import { UserRepository } from '../repositories/user.repository';
-import { NewUserModel } from '../interfaces/newUser.model';
+import { UserRepository } from '../../repositories/user.repository';
+import { NewUserModel } from '../../interfaces/userInterface/newUser.model';
 
 export class CreateUserProfileUseCase implements UseCase<NewUserModel, NewUserModel > {
 

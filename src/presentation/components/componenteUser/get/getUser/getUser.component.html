@@ -1,16 +1,27 @@
-<h1 class="text-center">
-  Informacion del usuario
-</h1>
-<div class="row">
+<table class="table">
+  <thead>
+    <tr>
+      <th>user_Id</th>
+      <th>firebase_Id</th>
+      <th>names</th>
+      <th>surNames</th>
+      <th>email</th>
+      <th>phone</th>
+      <th>gender</th>
+      <th>state</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let user of userList">
+        <td>{{ user.user_Id}}</td>
+        <td>{{ user.firebase_Id}}</td>
+        <td>{{ user.names }}</td>
+        <td>{{ user.surNames }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.phone }}</td>
+        <td>{{ user.gender }}</td>
+        <td>{{ user.state ? 'Available' : 'Not Available' }}</td>
+    </tr>
+  </tbody>
+</table>
 
-  <div *ngFor="let user of userList" class="col-md-4 col-sm-6 animate__animated animate__fadeIn g-4">
-
-      <div class="card">
-          <div class="card-body">
-              <p class="card-text" [routerLink]="['../listar', user]">
-                {{ user.user_id }} {{ user.firebase_id }} - {{ user.names }} - {{ user.surNames }} - {{ user.email }} - {{ user.phone }} - {{ user.gender }} - {{ user.state }}
-              </p>
-          </div>
-      </div>
-  </div>
-</div>

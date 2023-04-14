@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgModel } from '@angular/forms';
-import { UserList } from 'src/domain/interfaces/getUser.model';
-import { UserModel } from 'src/domain/interfaces/user.model';
-import { GetUserProfileUseCase } from 'src/domain/usecases/get-user-profile.usecase';
+import { Router } from '@angular/router';
+import { UserModel } from 'src/domain/interfaces/userInterface/user.model';
+import { GetUserProfileUseCase } from 'src/domain/usecases/userCases/get-user-profile.usecase';
 
 @Component({
   selector: 'app-getUser',
@@ -13,7 +13,7 @@ export class GetUserComponent implements OnInit {
   userList : UserModel[];
   empty : boolean;
 
-  constructor(private getUserProfileUseCase: GetUserProfileUseCase) {
+  constructor(private getUserProfileUseCase: GetUserProfileUseCase, private router: Router) {
     this.userList = [];
     this.empty = false;
   }
@@ -28,6 +28,7 @@ export class GetUserComponent implements OnInit {
       error: (err) => {
         console.log(err);
       this.empty = true;
+      this.router.navigate(['admonstore']);
       },
     });
   }

@@ -1,39 +1,28 @@
 <h1 class="text-center">
   Crear User
 
-
 </h1>
 <form id="createUser"
-(ngSubmit)=" createUser"
+(ngSubmit)=" createUser()"
 [formGroup]="frmFormulario" class="row g-3">
 
-<div class="form-floating mb-3">
-  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" formControlName ="user_id" name="user_id"></textarea>
-  <label for="floatingTextarea">user_id </label>
-  <p class="text-danger" *ngIf="frmFormulario.get('user_id')?.hasError('required') &&
-  frmFormulario.get('user_id')?.touched">id is required</p>
-</div>
-
   <div class="form-floating mb-3">
-      <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" formControlName ="firebase_id" name="firebase_id"></textarea>
-      <label for="floatingTextarea">firebase_id </label>
-      <p class="text-danger" *ngIf="frmFormulario.get('firebase_id')?.hasError('required') &&
-      frmFormulario.get('firebase_id')?.touched">firebase_id is required</p>
-    </div>
+      <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" formControlName ="firebase_Id" name="firebase_Id"></textarea>
+      <label for="floatingTextarea">firebase_Id </label>
+      <p class="text-danger" *ngIf="frmFormulario.get('firebase_Id')?.hasError('required') &&
+      frmFormulario.get('firebase_Id')?.touched">firebase_id is required</p>
 
     <div class="form-floating mb-3">
       <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" formControlName ="names" name="names"></textarea>
       <label for="floatingTextarea">names </label>
       <p class="text-danger" *ngIf="frmFormulario.get('names')?.hasError('required') &&
       frmFormulario.get('names')?.touched">names is required</p>
-    </div>
 
     <div class="form-floating mb-3">
-      <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" formControlName ="surName" name="surName"></textarea>
-      <label for="floatingTextarea">surName </label>
-      <p class="text-danger" *ngIf="frmFormulario.get('surName')?.hasError('required') &&
-      frmFormulario.get('surName')?.touched">surName is required</p>
-
+      <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" formControlName ="surNames" name="surNames"></textarea>
+      <label for="floatingTextarea">surNames </label>
+      <p class="text-danger" *ngIf="frmFormulario.get('surNames')?.hasError('required') &&
+      frmFormulario.get('surNames')?.touched">surName is required</p>
 
     <div class="form-floating mb-3">
       <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" formControlName ="email" name="email"></textarea>
@@ -41,13 +30,11 @@
       <p class="text-danger" *ngIf="frmFormulario.get('email')?.hasError('required') &&
       frmFormulario.get('email')?.touched">email is required</p>
 
-
     <div class="form-floating mb-3">
       <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" formControlName ="phone" name="phone"></textarea>
       <label for="floatingTextarea">phone </label>
       <p class="text-danger" *ngIf="frmFormulario.get('phone')?.hasError('required') &&
       frmFormulario.get('phone')?.touched">phone is required</p>
-
 
     <div class="form-floating mb-3">
       <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" formControlName ="gender" name="gender"></textarea>
@@ -55,20 +42,18 @@
       <p class="text-danger" *ngIf="frmFormulario.get('gender')?.hasError('required') &&
       frmFormulario.get('gender')?.touched">gender is required</p>
 
-
-    </div>
     <div class="form-floating mb-3">
         <select name="state" class="form-select" id="floatingSelect" aria-label="Floating label select example" formControlName ="state" name="state">
         <option selected>State </option>
-        <option value=false>available</option>
-        <option value=true>not available</option>
+        <option value=true>available</option>
+        <option value=false>not available</option>
         </select>
         <label for="floatingSelect">Select State</label>
-    </div>
-    <div class="col-12">
+
         <button class="btn btn-primary" type="submit" form = "createUser">Submit form</button>
+
     </div>
-    <input type="button" onclick="history.back()" name="volver atrás" value="volver atrás">
+    <input type="button" onclick="history.back()" name="back" value="back">
 
 
 

@@ -1,42 +1,37 @@
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
-import { UserEntity } from './entities/user-entity';
-import { UserImplementationRepositoryMapper } from './mappers/user-repository.mapper';
 import { UserRepository } from 'src/domain/repositories/user.repository';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { NewUserModel } from 'src/domain/interfaces/newUser.model';
-import { UserList } from 'src/domain/interfaces/getUser.model';
-import { UseCase } from 'src/base/use-case';
-import { UserModel } from 'src/domain/interfaces/user.model';
+import { NewUserModel } from 'src/domain/interfaces/userInterface/newUser.model';
+
+import { UserModel } from 'src/domain/interfaces/userInterface/user.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
     providedIn: 'root',
 })
 export class UserImplementationRepository extends UserRepository {
-    userMapper = new UserImplementationRepositoryMapper();
 
     constructor(private readonly httpClient: HttpClient,private router: Router, private afAuth: AngularFireAuth) {
         super();
     }
 
     getUserAsync(): Observable<UserModel[]> {
-        return this.httpClient.get<UserModel[]>('https://localhost:7116/api/User')
+        return this.httpClient.get<UserModel[]>(environment.urladmonStore)
           }
     createUserAsync(user: NewUserModel): Observable<NewUserModel> {
-        return this.httpClient.post<NewUserModel>('https://localhost:7116/api/User', user)
+        return this.httpClient.post<NewUserModel>(environment.urladmonStore, user)
     }
 
-    updateUserAsync(user: NewUserModel): Observable<NewUserModel> {
-        return this.httpClient.put<UserEntity>('https://localhost:7116/api/User', user)
-            .pipe(map(this.userMapper.mapFrom));
+    updateUserAsync(user: UserModel): Observable<UserModel> {
+        return this.httpClient.put<UserModel>(environment.urladmonStore, user)
     }
 
-    deleteUserAsync(id: string|null): Observable<UserModel> {
-        return this.httpClient.delete<UserEntity>('https://localhost:7116/api/User/' + id)
-            .pipe(map(this.userMapper.mapFrom));
+    deleteUserAsync(id: string): Observable<string> {
+       return this.httpClient.delete<string>(environment.urladmonStore + '/' + id)
 
     }
 

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from 'src/data/repositories/auth/auth.service';
+import { AuthService } from 'src/presentation/Login/auth/auth.service';
 
 @Component({
   selector: 'app-middle',
@@ -8,7 +8,7 @@ import { AuthService } from 'src/data/repositories/auth/auth.service';
 })
 export class MiddleComponent {
 
-  options : string = 'MENU'
+  options : string = 'MENU PRINCIPAL'
   routeGet: string[];
   routeCreate: string[];
   routeUpdate: string[];
