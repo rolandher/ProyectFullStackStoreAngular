@@ -1,0 +1,78 @@
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>location_Id</th>
+      <th>id_Store</th>
+      <th>names</th>
+      <th>description</th>
+      <th>location_Type</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let locationList of locationList">
+        <td>{{locationList.location_Id}}</td>
+        <td>{{locationList.id_Store}}</td>
+        <td>{{locationList.names}}</td>
+        <td>{{locationList.description}}</td>
+        <td>{{locationList.location_Type}}</td>
+    </tr>
+  </tbody>
+</table>
+<button type="button" class="btn btn-secondary" (click)="getLocation()">GetLocation</button>
+
+<h1 class="text-center">CreateLocation</h1>
+
+<form id="createLocation"
+(ngSubmit)="createLocation()"
+[formGroup]="frmFormulario" class="row g-3">
+
+  <div class="col-md-6">
+    <label for="id_Store" class="form-label">Id_Store</label>
+    <input type="text" class="form-control" id="id_Store" name="id_Store" formControlName="id_Store" required>
+    <div class="form-text text-danger" *ngIf="frmFormulario.get('id_Store')?.hasError('required') &&
+    frmFormulario.get('id_Store')?.touched">id_Store is required</div>
+
+  <div class="col-md-6">
+    <label for="names" class="form-label">Names</label>
+    <input type="text" class="form-control" id="names" name="names" formControlName="names" required>
+    <div class="form-text text-danger" *ngIf="frmFormulario.get('names')?.hasError('required') &&
+    frmFormulario.get('names')?.touched">names is required</div>
+  </div>
+
+  <div class="col-md-6">
+    <label for="description" class="form-label">Description</label>
+    <input type="text" class="form-control" id="description" name="description" formControlName="description" required>
+    <div class="form-text text-danger" *ngIf="frmFormulario.get('description')?.hasError('required') &&
+    frmFormulario.get('description')?.touched">description is required</div>
+  </div>
+  <div class="col-md-6">
+    <label for="location_Type" class="form-label">Location_Type</label>
+    <input type="text" class="form-control" id="location_Type" name="location_Type" formControlName="location_Type" required>
+    <div class="form-text text-danger" *ngIf="frmFormulario.get('location_Type')?.hasError('required') &&
+    frmFormulario.get('location_Type')?.touched">location_Type is required</div>
+  </div>
+    <button type="button" class="btn btn-secondary" (click)="createLocation()">Create</button>
+
+
+    <h1 class="text-center">GetId</h1>
+
+    <form id="getLocationById"
+    (ngSubmit)="getLocationById()"
+    [formGroup]="frmFormulario" class="row g-3">
+
+    <div class="col-md-6">
+    <label for="location_Id" class="form-label">Location_Id</label>
+    <input type="text" class="form-control" id="location_Id" name="location_Id" formControlName="location_Id" required>
+    <div class="form-text text-danger" *ngIf="frmFormulario.get('location_Id')?.hasError('required') &&
+    frmFormulario.get('location_Id')?.touched">location_Id is required</div>
+    <button type="button" class="btn btn-secondary" (click)="getLocationById()">GetLocationById</button>
+
+
+
+
+
+
+
+
+

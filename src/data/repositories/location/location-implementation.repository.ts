@@ -25,9 +25,8 @@ export class LocationImplementationRepository extends LocationRepository {
         return this.httpClient.post<NewLocationModel>(environment.urlLocation, location)
     }
     getLocationByIdAsync(id: number): Observable<LocationModel> {
-        return this.httpClient.get<LocationModel>(`${environment.urlLocation}/${id}`)
+        return this.httpClient.get<LocationModel>(`${environment.urlLocation, id}`)
     }
-
 
     SignOut() {
       return this.afAuth.signOut().then(() => {

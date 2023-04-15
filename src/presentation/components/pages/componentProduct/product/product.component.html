@@ -1,0 +1,29 @@
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>id_Store</th>
+      <th>names</th>
+      <th>description</th>
+      <th>stock</th>
+      <th>price</th>
+      <th>admissionDate</th>
+      <th>departureDate</th>
+      <th>state</th>
+
+    </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let productList of productList">
+        <td>{{productList.id_Store}}</td>
+        <td>{{productList.names}}</td>
+        <td>{{productList.description}}</td>
+        <td>{{productList.stock}}</td>
+        <td>{{productList.price}}</td>
+        <td>{{productList.admissionDate}}</td>
+        <td>{{productList.departureDate}}</td>
+        <td>{{productList.state}}</td>
+    </tr>
+  </tbody>
+</table>
+<button type="button" class="btn btn-secondary" (click)="getProduct()">getProduct</button>

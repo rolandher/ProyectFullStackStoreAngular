@@ -4,16 +4,15 @@ import { GetUserComponent } from './get/getUser/getUser.component';
 import { CrearUserComponent } from './create/createUser/createUser.component';
 import { UpdateUserComponent } from './update/updateUser/updateUser.component';
 import { DeleteUserComponent } from './delete/deleteUser/deleteUser.component';
-import { LayoutsComponent } from '../../design/layouts/layouts.component';
-
-
+import { LayoutsComponent } from '../../main/layouts/layouts.component';
+import { UserMainComponent } from './UserMain/UserMain/UserMain.component';
 
 //component user
 
 const routes: Routes = [
   {
     path: '',
-    component: LayoutsComponent,
+    component: UserMainComponent,
     children: [
       {
         path: 'get',
@@ -37,8 +36,10 @@ const routes: Routes = [
 ];
 
 
+
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
 export class AdmonstoreRoutes {}
+

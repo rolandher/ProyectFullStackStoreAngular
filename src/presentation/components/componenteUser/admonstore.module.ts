@@ -6,17 +6,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { AdmonstoreRoutes } from './admonstore.module.routing';
 
 
-import { FooterComponent } from '../../design/footer/footer.component';
-import { HeaderComponent } from '../../design/header/header.component';
-import { MiddleComponent } from '../../design/middle/middle.component';
+
 import { DashboardComponent } from '../../Login/dashboard/dashboard.component';
 import { LoginUserComponent } from '../../Login/loginUser/loginUser.component';
-import { LayoutsComponent } from '../../design/layouts/layouts.component';
+
 import { DataModule } from 'src/data/repositories/user/data.module';
 import { GetUserComponent } from './get/getUser/getUser.component';
 import { CrearUserComponent } from './create/createUser/createUser.component';
 import { UpdateUserComponent } from './update/updateUser/updateUser.component';
 import { DeleteUserComponent } from './delete/deleteUser/deleteUser.component';
+import { UserMainComponent } from './UserMain/UserMain/UserMain.component';
 
 
 
@@ -26,12 +25,7 @@ import { DeleteUserComponent } from './delete/deleteUser/deleteUser.component';
     CrearUserComponent,
     UpdateUserComponent,
     DeleteUserComponent,
-    FooterComponent,
-    HeaderComponent,
-    MiddleComponent,
-    LayoutsComponent,
-    DashboardComponent,
-    LoginUserComponent
+    UserMainComponent,
 
 
   ],
