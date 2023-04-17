@@ -16,6 +16,7 @@ export class StoreComponent {
   storeList : StoreModel[];
   storeToCreate: NewStoreModel[];
   frmFormulario : FormGroup;
+  hidelist: boolean = false;
 
   constructor(private getStoreUseCase: GetStoreProfileUseCase, private createStoreUseCase: CreateStoreProfileUseCase, private router: Router){
     this.storeList = new Array<StoreModel>();
@@ -51,6 +52,7 @@ export class StoreComponent {
         this.router.navigate(['main']);
       },
     });
+    this.hidelist = true;
   }
 
   createStore(){

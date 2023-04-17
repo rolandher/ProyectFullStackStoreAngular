@@ -10,7 +10,7 @@ import { CreateUserProfileUseCase } from 'src/domain/usecases/userCases/create-u
   templateUrl: './createUser.component.html',
   styleUrls: ['./createUser.component.css']
 })
-export class CrearUserComponent {
+export class CreateUserComponent {
   frmFormulario : FormGroup;
   userToCreate: NewUserModel[];
 

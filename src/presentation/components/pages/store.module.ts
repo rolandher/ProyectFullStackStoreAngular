@@ -30,6 +30,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     StoreRoutes,
+
     ReactiveFormsModule,
 
   ]

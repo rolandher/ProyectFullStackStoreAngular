@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { GetUserComponent } from './get/getUser/getUser.component';
-import { CrearUserComponent } from './create/createUser/createUser.component';
+import { CreateUserComponent } from './create/createUser/createUser.component';
 import { UpdateUserComponent } from './update/updateUser/updateUser.component';
 import { DeleteUserComponent } from './delete/deleteUser/deleteUser.component';
-import { LayoutsComponent } from '../../main/layouts/layouts.component';
 import { UserMainComponent } from './UserMain/UserMain/UserMain.component';
 
 //component user
@@ -20,7 +19,7 @@ const routes: Routes = [
       },
       {
         path: 'create',
-        component: CrearUserComponent,
+        component: CreateUserComponent,
       },
       {
         path: 'update',

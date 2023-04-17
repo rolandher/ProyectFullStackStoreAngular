@@ -11,7 +11,7 @@ import { LoginUserComponent } from 'src/presentation/Login/loginUser/loginUser.c
 
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
-const redirectLoggedInToDashboard = () => redirectLoggedInTo(['main']);
+const redirectLoggedInToMain = () => redirectLoggedInTo(['main']);
 
 
 const routes: Routes = [
@@ -19,7 +19,7 @@ const routes: Routes = [
     path: 'login', //http://localhost:7116/login
     component: LoginUserComponent,
     canActivate: [AngularFireAuthGuard],
-    data: { authGuardPipe: redirectLoggedInToDashboard },
+    data: { authGuardPipe: redirectLoggedInToMain },
   },
   {
     path: 'main', //http://localhost:7116/main
