@@ -3,14 +3,13 @@ import { Observable } from 'rxjs';
 import { ProductRepository } from 'src/domain/repositories/product.repository';
 import { UpdateState } from 'src/domain/interfaces/productInterface/updateState';
 import { ProductModel } from 'src/domain/interfaces/productInterface/product.model';
+import { StockProduct } from 'src/domain/interfaces/productInterface/stockProduct.model';
 
-export class UpdateStateProfileUseCase implements UseCase<UpdateState, ProductModel> {
+export class AddStockProductProfileUseCase implements UseCase<StockProduct, ProductModel> {
 
   constructor(private productRepository: ProductRepository) { }
 
-  execute(updateState: UpdateState): Observable<ProductModel> {
-      console.log("updateState", updateState);
-      return this.productRepository.updateStateAsync(updateState);
-
+  execute(stock: StockProduct): Observable<ProductModel> {
+      return this.productRepository.agregateStockProductAsync(stock);
   }
 }

@@ -25,4 +25,5 @@ describe('StoreComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  //pruebas unitarias
 });

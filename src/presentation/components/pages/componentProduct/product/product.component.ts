@@ -3,10 +3,13 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NewProductModel } from 'src/domain/interfaces/productInterface/NewProduct.model';
 import { ProductModel } from 'src/domain/interfaces/productInterface/product.model';
+import { StockProduct } from 'src/domain/interfaces/productInterface/stockProduct.model';
 import { UpdateState } from 'src/domain/interfaces/productInterface/updateState';
+import { AddStockProductProfileUseCase } from 'src/domain/usecases/productCases/addStock-product-profile.usecase';
 import { CreateProductProfileUseCase } from 'src/domain/usecases/productCases/create-product-profile.usecase';
 import { GetProductProfileUseCase } from 'src/domain/usecases/productCases/get-product-profile.usecase';
-import { GetProductByIdProfileUseCase } from 'src/domain/usecases/productCases/get-productoById-profile.usecase';
+
+import { SubtractStockProductProfileUseCase } from 'src/domain/usecases/productCases/substrackStock-product.profile.usecase';
 import { UpdateStateProfileUseCase } from 'src/domain/usecases/productCases/updateState-product-profile.usecase';
 
 @Component({
@@ -20,13 +23,22 @@ export class ProductComponent {
   productToCreate: NewProductModel[];
   frmFormulario : FormGroup;
   update?: UpdateState;
+  stock? : StockProduct
 
-  constructor(private getProductUseCase: GetProductProfileUseCase, private createProductUseCase: CreateProductProfileUseCase, private updateStateProfileUseCase: UpdateStateProfileUseCase,
+  constructor(private getProductUseCase: GetProductProfileUseCase, private createProductUseCase: CreateProductProfileUseCase,
+    private updateStateProfileUseCase: UpdateStateProfileUseCase, private addStockProductProfileUseCase: AddStockProductProfileUseCase,
+    private subtractStockProductProfileUseCase: SubtractStockProductProfileUseCase,
      private router: Router){
     this.productList = new Array<ProductModel>();
     this.productToCreate = [];
     this.frmFormulario = new FormGroup({
       id_Store: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(45)
+      ]),
+
+      product_Id: new FormControl('', [
         Validators.required,
         Validators.minLength(3),
         Validators.maxLength(45)
@@ -91,19 +103,13 @@ export class ProductComponent {
     );
   }
 
-  // getProductById(id: number) {
-  //   this.getProductByIdUseCase.execute(this.frmFormulario.getRawValue()).subscribe({
-  //     next:(Item) =>{
-  //       console.log(Item);
-  //       this.router.navigate(['main']);
-  //     },
-  //   });
-  // }
-
   updateState() {
+    console.log(this.frmFormulario.get('state')?.value);
+    console.log ('true' === this.frmFormulario.get('state')?.value);
     this.update = {
-      product_Id: this.frmFormulario.get('id')?.value,
-      state: this.frmFormulario.get('state')?.value};
+      product_Id: parseInt( this.frmFormulario.get('product_Id')?.value),
+      state: ('true' === this.frmFormulario.get('state')?.value)};
+
     this.updateStateProfileUseCase.execute(this.update
     ).subscribe({
       next:(Item) =>{
@@ -113,13 +119,32 @@ export class ProductComponent {
     });
   }
 
-  agregarProducto(){
-    this.productToCreate.push(this.frmFormulario.getRawValue());
-    console.log(this.productToCreate);
+  addStock() {
+    this.stock = {
+      product_Id: this.frmFormulario.get('product_Id')?.value,
+      stock: this.frmFormulario.get('stock')?.value};
+    this.addStockProductProfileUseCase.execute(this.stock
+    ).subscribe({
+      next:(Item) =>{
+        console.log(Item);
+        this.router.navigate(['main']);
+      },
+    });
   }
 
-  quitarProducto(){
-    this.productToCreate.splice(0,1);
+  subtractStock() {
+    this.stock = {
+      product_Id: this.frmFormulario.get('product_Id')?.value,
+      stock: this.frmFormulario.get('stock')?.value};
+    this.subtractStockProductProfileUseCase.execute(this.stock
+    ).subscribe({
+      next:(Item) =>{
+        console.log(Item);
+        this.router.navigate(['main']);
+      },
+    });
   }
+
+
 }
 

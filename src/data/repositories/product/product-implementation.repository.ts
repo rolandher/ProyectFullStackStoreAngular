@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment';
 import { ProductRepository } from 'src/domain/repositories/product.repository';
 import { ProductModel } from 'src/domain/interfaces/productInterface/product.model';
 import { UpdateState } from 'src/domain/interfaces/productInterface/updateState';
+import { StockProduct } from 'src/domain/interfaces/productInterface/stockProduct.model';
 
 @Injectable({
     providedIn: 'root',
@@ -35,12 +36,12 @@ export class ProductImplementationRepository extends ProductRepository {
         return this.httpClient.put<ProductModel>(`${environment.urlProduct +"/UpdateState"}`, updateState)
     }
 
-    agregateStockProductAsync(id: number, stock: number): Observable<ProductModel> {
-        return this.httpClient.put<ProductModel>(`${environment.urlProduct, id}`, stock)
+    agregateStockProductAsync(stock : StockProduct): Observable<ProductModel> {
+        return this.httpClient.put<ProductModel>(`${environment.urlProduct + "/AddStock"}`, stock)
     }
 
-    subtractStockProductAsync(id: number, stock: number): Observable<ProductModel> {
-        return this.httpClient.put<ProductModel>(`${environment.urlProduct, id}`, stock)
+    subtractStockProductAsync(stock : StockProduct): Observable<ProductModel> {
+        return this.httpClient.put<ProductModel>(`${environment.urlProduct + "/SubtractStock"}`, stock)
     }
 
 

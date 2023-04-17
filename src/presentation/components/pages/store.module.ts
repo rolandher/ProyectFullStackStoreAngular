@@ -14,6 +14,7 @@ import { LocationComponent } from './componentLocation/location/location.compone
 //product
 import { ProductComponent } from './componentProduct/product/product.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UserComponent } from './componentUser/user/user.component';
 
 
 
@@ -24,13 +25,13 @@ import { ReactiveFormsModule } from '@angular/forms';
     ComponentStoreMainComponent,
     StoreComponent,
     LocationComponent,
-    ProductComponent
+    ProductComponent,
+    UserComponent,
 
   ],
   imports: [
     CommonModule,
     StoreRoutes,
-
     ReactiveFormsModule,
 
   ]

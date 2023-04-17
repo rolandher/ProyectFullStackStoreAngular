@@ -12,13 +12,13 @@ import { GetLocationByIdProfileUseCase } from 'src/domain/usecases/locationCases
   templateUrl: './location.component.html',
   styleUrls: ['./location.component.css']
 })
-export class LocationComponent {
+export class LocationComponent  {
 
   locationList : LocationModel[];
   locationToCreate: NewLocationModel[];
   frmFormulario : FormGroup;
 
-  constructor(private getlocationUseCase: GetLocationProfileUseCase, private createLocationUseCase: CreateLocationProfileUseCase, private getByIdLocation: GetLocationByIdProfileUseCase, private router: Router){
+  constructor(private getlocationUseCase: GetLocationProfileUseCase, private createLocationUseCase: CreateLocationProfileUseCase, private router: Router){
     this.locationList = new Array<LocationModel>();
     this.locationToCreate = [];
     this.frmFormulario = new FormGroup({
@@ -68,14 +68,14 @@ export class LocationComponent {
       },
     });
   }
+  // getLocationById(){
+  //   console.log(this.frmFormulario.getRawValue())
+  //   this.getByIdLocation.execute(this.frmFormulario.getRawValue()).subscribe({
+  //     next:(Item) =>{
+  //       console.log(Item);
+  //       this.router.navigate(['main']);
+  //     },
+  //   });
 
-  getLocationById(){
-    console.log(this.frmFormulario.getRawValue())
-    this.getByIdLocation.execute(this.frmFormulario.getRawValue()).subscribe({
-      next:(Item) =>{
-        console.log(Item);
-        this.router.navigate(['main']);
-      },
-    });
-  }
+
 }

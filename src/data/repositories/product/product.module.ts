@@ -7,6 +7,8 @@ import { ProductImplementationRepository } from './product-implementation.reposi
 import { CreateProductProfileUseCase } from 'src/domain/usecases/productCases/create-product-profile.usecase';
 import { GetProductByIdProfileUseCase } from 'src/domain/usecases/productCases/get-productoById-profile.usecase';
 import { UpdateStateProfileUseCase } from 'src/domain/usecases/productCases/updateState-product-profile.usecase';
+import { AddStockProductProfileUseCase } from 'src/domain/usecases/productCases/addStock-product-profile.usecase';
+import { SubtractStockProductProfileUseCase } from 'src/domain/usecases/productCases/substrackStock-product.profile.usecase';
 
 
 const getProductProfileUseCaseFactory =
@@ -41,12 +43,32 @@ export const updateStateProfileUseCaseProvider = {
     deps: [ProductRepository],
 };
 
+const addStockProductProfileUseCaseFactory =
+(producRepo: ProductRepository) => new AddStockProductProfileUseCase(producRepo);
+export const addStockProductProfileUseCaseProvider = {
+    provide: AddStockProductProfileUseCase,
+    useFactory: addStockProductProfileUseCaseFactory,
+    deps: [ProductRepository],
+};
+
+const subtractStockProductProfileUseCaseFactory =
+(producRepo: ProductRepository) => new SubtractStockProductProfileUseCase(producRepo);
+export const subtractStockProductProfileUseCaseProvider = {
+    provide: SubtractStockProductProfileUseCase,
+    useFactory: subtractStockProductProfileUseCaseFactory,
+    deps: [ProductRepository],
+};
+
+
+
 @NgModule({
     providers: [
       getProductProfileUseCaseProvider,
       getProductByIdProfileUseCaseProvider,
       createProductProfileUseCaseProvider,
       updateStateProfileUseCaseProvider,
+      addStockProductProfileUseCaseProvider,
+      subtractStockProductProfileUseCaseProvider,
         { provide: ProductRepository, useClass: ProductImplementationRepository },
     ],
     imports: [

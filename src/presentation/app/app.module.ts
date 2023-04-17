@@ -13,7 +13,7 @@ import { StoreModule } from 'src/data/repositories/store/store.module';
 import { AppComponent } from './pages/app.component';
 import { LocationModule } from 'src/data/repositories/location/location.module';
 import { ProductModule } from 'src/data/repositories/product/product.module';
-import { AdmonstoreModule } from '../components/componenteUser/admonstore.module';
+
 
 
 @NgModule({
@@ -23,7 +23,6 @@ import { AdmonstoreModule } from '../components/componenteUser/admonstore.module
     BrowserModule,
     AppRoutingModule,
     DataModule,
-    AdmonstoreModule,
     StoreModule,
     LocationModule,
     ProductModule,

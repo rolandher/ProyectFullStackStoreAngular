@@ -4,6 +4,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { LocationComponent } from './location.component';
+import { StoreModule } from 'src/data/repositories/store/store.module';
 
 describe('LocationComponent', () => {
   let component: LocationComponent;
@@ -11,7 +12,9 @@ describe('LocationComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LocationComponent ]
+      providers: [LocationComponent],
+      declarations: [ LocationComponent, StoreModule],
+      imports: [StoreModule]
     })
     .compileComponents();
   }));
@@ -23,6 +26,9 @@ describe('LocationComponent', () => {
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(component).toBeDefined();
   });
 });
+
+
+

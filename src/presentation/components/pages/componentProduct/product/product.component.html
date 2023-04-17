@@ -76,6 +76,9 @@
     frmFormulario.get('state')?.touched">state is required</div>
   </div>
   <div class="col-12">
+    <form id="createProduct" (ngSubmit)="createProduct()" [formGroup]="frmFormulario" class="row g-3"></form>
+
+
     <button type="button" class="btn btn-secondary" (click)="updateState()">updateState</button>
   </div>
     <div class="form-group col-md-1">
@@ -84,16 +87,15 @@
       <div class="form-text text-danger" *ngIf="frmFormulario.get('product_Id')?.hasError('required') &&
       frmFormulario.get('product_Id')?.touched">product_Id is required</div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-2">
       <label for="state" class="form-label">State</label>
       <select id="state" class="form-select" aria-label="Floating label select example" formControlName="state" name="state">
-        <option selected>Open this select menu</option>
-        <option value="1">Active</option>
-        <option value="0">Inactive</option>
+        <option value="true">Activo</option>
+        <option value="false">Inactivo</option>
       </select>
+    </div>
     <div class="col-12">
-
-      <button type="button" class="btn btn-secondary" (click)="agregarProducto()">agregateStock</button>
+      <button type="button" class="btn btn-secondary" (click)="addStock()">AddStock</button>
     </div>
       <div class="form-group col-md-1">
         <label for="product_Id" class="form-label">Product_Id</label>
@@ -101,31 +103,28 @@
         <div class="form-text text-danger" *ngIf="frmFormulario.get('product_Id')?.hasError('required') &&
         frmFormulario.get('product_Id')?.touched">product_Id is required</div>
       </div>
-      <div class="col-md-6">
-        <label for="state" class="form-label">Stock</label>
-        <select id="state" class="form-select" aria-label="Floating label select example" formControlName="state" name="state">
-          <option selected>Open this select menu</option>
-          <option value="1">Active</option>
-          <option value="0">Inactive</option>
-        </select>
-      <div class="col-12">
-
-        <button type="button" class="btn btn-secondary" (click)="quitarProducto()">substracStock</button>
+      <div class="form-group col-md-3">
+        <label for="stock" class="form-label">Stock</label>
+        <input type="text" class="form-control" id="stock" name="stock" formControlName="stock" required>
+        <div class="form-text text-danger" *ngIf="frmFormulario.get('stock')?.hasError('required') &&
+        frmFormulario.get('stock')?.touched">stock is required</div>
       </div>
-        <div class="form-group col-md-1">
-          <label for="product_Id" class="form-label">Product_Id</label>
-          <input type="text" class="form-control" id="product_Id" name="product_Id" formControlName="product_Id" required>
-          <div class="form-text text-danger" *ngIf="frmFormulario.get('product_Id')?.hasError('required') &&
-          frmFormulario.get('product_Id')?.touched">product_Id is required</div>
+      <div class="col-12">
+          <button type="button" class="btn btn-secondary" (click)="subtractStock()">SubtractStock</button>
         </div>
-        <div class="col-md-6">
-          <label for="state" class="form-label">Stock</label>
-          <select id="state" class="form-select" aria-label="Floating label select example" formControlName="state" name="state">
-            <option selected>Open this select menu</option>
-            <option value="1">Active</option>
-            <option value="0">Inactive</option>
-          </select>
-        <div class="col-12">
+          <div class="form-group col-md-1">
+            <label for="product_Id" class="form-label">Product_Id</label>
+            <input type="text" class="form-control" id="product_Id" name="product_Id" formControlName="product_Id" required>
+            <div class="form-text text-danger" *ngIf="frmFormulario.get('product_Id')?.hasError('required') &&
+            frmFormulario.get('product_Id')?.touched">product_Id is required</div>
+          </div>
+          <div class="form-group col-md-1">
+            <label for="stock" class="form-label">Stock</label>
+            <input type="text" class="form-control" id="stock" name="stock" formControlName="stock" required>
+            <div class="form-text text-danger" *ngIf="frmFormulario.get('stock')?.hasError('required') &&
+            frmFormulario.get('stock')?.touched">stock is required</div>
+          </div>
+          <div class="col-12">
 
 
 

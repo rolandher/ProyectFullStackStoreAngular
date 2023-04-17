@@ -7,9 +7,10 @@ import { GetUserProfileUseCase } from 'src/domain/usecases/userCases/get-user-pr
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  title: any;
 
-  constructor(private users: GetUserProfileUseCase) { }
-
-
+  constructor (){
+    this.title = 'AdmonStore';
+  }
 }
 

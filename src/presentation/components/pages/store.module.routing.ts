@@ -5,6 +5,7 @@ import { ComponentStoreMainComponent } from './componentStoreMain/componentStore
 import { StoreComponent } from './componentsStore/store/store.component';
 import { LocationComponent } from './componentLocation/location/location.component';
 import { ProductComponent } from './componentProduct/product/product.component';
+import { UserComponent } from './componentUser/user/user.component';
 
 
 
@@ -26,6 +27,10 @@ const routes: Routes = [
       {
         path: 'product',
         component: ProductComponent
+      },
+      {
+        path: 'user',
+        component: UserComponent
       },
       {
         path: '**',

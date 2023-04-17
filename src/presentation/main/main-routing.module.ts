@@ -13,6 +13,12 @@ const routes: Routes = [
           import('../components/pages/store.module').then(
             module => module.Store),
       },
+      // {
+      //   path: 'componenteUser', //http://localhost:7116/main/componenteUser
+      //   loadChildren: () =>
+      //     import('../components/componenteUser/admonstore.module').then(
+      //       module => module.AdmonstoreModule),
+      // },
       {
         path: '**',
         redirectTo: 'main'

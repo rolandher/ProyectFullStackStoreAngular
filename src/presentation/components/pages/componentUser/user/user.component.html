@@ -1,0 +1,160 @@
+<button type="button" class="btn btn-secondary mb-3" (click)="getUser()">GetSUser</button>
+<table class="table">
+  <thead>
+    <tr>
+      <th>user_Id</th>
+      <th>firebase_Id</th>
+      <th>names</th>
+      <th>surNames</th>
+      <th>email</th>
+      <th>phone</th>
+      <th>gender</th>
+      <th>state</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let user of userList">
+        <td>{{ user.user_Id}}</td>
+        <td>{{ user.firebase_Id}}</td>
+        <td>{{ user.names }}</td>
+        <td>{{ user.surNames }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.phone }}</td>
+        <td>{{ user.gender }}</td>
+        <td>{{ user.state ? 'Available' : 'Not Available' }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<form id="createUser" (ngSubmit)="createUser()" [formGroup]="frmFormulario" class="row g-3">
+  <div class="col-md-1">
+    <label for="firebase_Id" class="form-label">Firebase Id</label>
+    <input type="text" class="form-control" id="firebase_Id" name="firebase_Id" formControlName="firebase_Id" required>
+    <div class="form-text text-danger" *ngIf="frmFormulario.get('firebase_Id')?.hasError('required') &&
+    frmFormulario.get('firebase_Id')?.touched">firebase_id is required</div>
+  </div>
+  <div class="col-md-2">
+    <label for="names" class="form-label">Names</label>
+    <input type="text" class="form-control" id="names" name="names" formControlName="names" required>
+    <div class="form-text text-danger" *ngIf="frmFormulario.get('names')?.hasError('required') &&
+    frmFormulario.get('names')?.touched">names is required</div>
+  </div>
+  <div class="col-md-2">
+    <label for="surNames" class="form-label">Surnames</label>
+    <input type="text" class="form-control" id="surNames" name="surNames" formControlName="surNames" required>
+    <div class="form-text text-danger" *ngIf="frmFormulario.get('surNames')?.hasError('required') &&
+    frmFormulario.get('surNames')?.touched">surName is required</div>
+  </div>
+  <div class="col-md-2">
+    <label for="email" class="form-label">Email</label>
+    <input type="email" class="form-control" id="email" name="email" formControlName="email" required>
+    <div class="form-text text-danger" *ngIf="frmFormulario.get('email')?.hasError('required') &&
+    frmFormulario.get('email')?.touched">email is required</div>
+  </div>
+  <div class="col-md-1">
+    <label for="phone" class="form-label">Phone</label>
+    <input type="text" class="form-control" id="phone" name="phone" formControlName="phone" required>
+    <div class="form-text text-danger" *ngIf="frmFormulario.get('phone')?.hasError('required') &&
+    frmFormulario.get('phone')?.touched">phone is required</div>
+  </div>
+  <div class="col-md-2">
+    <label for="gender" class="form-label">Gender</label>
+    <input type="text" class="form-control" id="gender" name="gender" formControlName="gender" required>
+    <div class="form-text text-danger" *ngIf="frmFormulario.get('gender')?.hasError('required') &&
+    frmFormulario.get('gender')?.touched">gender is required</div>
+  </div>
+  <div class="col-md-2">
+    <label for="state" class="form-label">State</label>
+    <select id="state" class="form-select" aria-label="Floating label select example" formControlName="state" name="state">
+      <option value="true">Available</option>
+      <option value="false">Not Available</option>
+    </select>
+  </div>
+  <div class="col-12">
+    <button type="submit" class="btn btn-secondary mb-3">CreateUser</button>
+  </div>
+</form>
+
+<form id="updateUser"
+(ngSubmit)="updateUser()"
+[formGroup]="frmFormulario" class="row g-3">
+
+  <div class="col-md-1">
+    <label for="user_id" class="form-label">user_id</label>
+    <input type="text" class="form-control" id="user_id" name="user_id" formControlName="user_id" required>
+    <div class="form-text text-danger" *ngIf="frmFormulario.get('user_id')?.hasError('required') &&
+    frmFormulario.get('user_id')?.touched">user_id is required</div>
+  </div>
+
+  <div class="col-md-1">
+    <label for="firebase_Id" class="form-label">Firebase Id</label>
+    <input type="text" class="form-control" id="firebase_Id" name="firebase_Id" formControlName="firebase_Id" required>
+    <div class="form-text text-danger" *ngIf="frmFormulario.get('firebase_Id')?.hasError('required') &&
+    frmFormulario.get('firebase_Id')?.touched">firebase_id is required</div>
+  </div>
+  <div class="col-md-2">
+    <label for="names" class="form-label">Names</label>
+    <input type="text" class="form-control" id="names" name="names" formControlName="names" required>
+    <div class="form-text text-danger" *ngIf="frmFormulario.get('names')?.hasError('required') &&
+    frmFormulario.get('names')?.touched">names is required</div>
+  </div>
+  <div class="col-md-2">
+    <label for="surNames" class="form-label">Surnames</label>
+    <input type="text" class="form-control" id="surNames" name="surNames" formControlName="surNames" required>
+    <div class="form-text text-danger" *ngIf="frmFormulario.get('surNames')?.hasError('required') &&
+    frmFormulario.get('surNames')?.touched">surName is required</div>
+  </div>
+  <div class="col-md-2">
+    <label for="email" class="form-label">Email</label>
+    <input type="email" class="form-control" id="email" name="email" formControlName="email" required>
+    <div class="form-text text-danger" *ngIf="frmFormulario.get('email')?.hasError('required') &&
+    frmFormulario.get('email')?.touched">email is required</div>
+  </div>
+  <div class="col-md-1">
+    <label for="phone" class="form-label">Phone</label>
+    <input type="text" class="form-control" id="phone" name="phone" formControlName="phone" required>
+    <div class="form-text text-danger" *ngIf="frmFormulario.get('phone')?.hasError('required') &&
+    frmFormulario.get('phone')?.touched">phone is required</div>
+  </div>
+  <div class="col-md-1">
+    <label for="gender" class="form-label">Gender</label>
+    <input type="text" class="form-control" id="gender" name="gender" formControlName="gender" required>
+    <div class="form-text text-danger" *ngIf="frmFormulario.get('gender')?.hasError('required') &&
+    frmFormulario.get('gender')?.touched">gender is required</div>
+  </div>
+  <div class="col-md-2">
+    <label for="state" class="form-label">State</label>
+    <select id="state" class="form-select" aria-label="Floating label select example" formControlName="state" name="state">
+      <option value="true">Available</option>
+      <option value="false">Not Available</option>
+    </select>
+  </div>
+  <div class="col-12">
+
+        <button class="btn btn-secondary mb-3" type="submit" form = "updateUser">UpdateUser</button>
+    </div>
+<form>
+
+<form id="deleteUser"
+[formGroup]="frmFormulario" class="row g-3">
+
+<div class="form-floating mb-3">
+  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" formControlName ="user_Id" name="user_Id"></textarea>
+  <label for="floatingTextarea">user_Id </label>
+  <p class="text-danger" *ngIf="frmFormulario.get('user_Id')?.hasError('required') &&
+  frmFormulario.get('user_Id')?.touched">El id es requerido</p>
+</div>
+
+<div class="col-12">
+  <button type="submit" class="btn btn-secondary mb-3">DeleteUser</button>
+</div>
+  </form>
+
+
+
+
+
+
+
+
+

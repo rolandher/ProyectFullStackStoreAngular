@@ -24,13 +24,13 @@
       <h1 class="text-center mb-3">CreateStore</h1>
 
       <form id="createStore" (ngSubmit)="createStore()" [formGroup]="frmFormulario" class="row g-3">
-        <div class="col-md-6">
+        <div class="col-md-1">
           <label for="id_User" class="form-label">Id_User</label>
           <input type="text" class="form-control" id="id_User" name="id_User" formControlName="id_User" required>
           <div class="form-text text-danger" *ngIf="frmFormulario.get('id_User')?.hasError('required') &&
             frmFormulario.get('id_User')?.touched">id_User is required</div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-3">
           <label for="names" class="form-label">Names</label>
           <input type="text" class="form-control" id="names" name="names" formControlName="names" required>
           <div class="form-text text-danger" *ngIf="frmFormulario.get('names')?.hasError('required') &&
