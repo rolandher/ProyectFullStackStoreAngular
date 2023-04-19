@@ -6,5 +6,5 @@ export abstract class UserRepository {
     abstract getUserAsync(): Observable<UserModel[]>;
     abstract createUserAsync(user: NewUserModel): Observable<NewUserModel>;
     abstract updateUserAsync(user: UserModel): Observable<UserModel>;
-    abstract deleteUserAsync(id: string): Observable<string>;
+    abstract deleteUserAsync(id: string): Observable<UserModel>;
 }

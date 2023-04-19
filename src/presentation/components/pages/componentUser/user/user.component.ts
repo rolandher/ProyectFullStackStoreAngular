@@ -19,7 +19,7 @@ export class UserComponent {
   userToCreate: NewUserModel[];
   frmFormulario : FormGroup;
   empty : boolean;
-  user_Id!: string;
+  id?: string;
 
 
   constructor(private getUserUseCase: GetUserProfileUseCase ,
@@ -106,13 +106,22 @@ export class UserComponent {
       }
     })
   }
-  deleteUser(id : string){
-    this.user_Id = this.frmFormulario.getRawValue().user_Id;
-    console.log(this.user_Id);
-     this.deleteUserUseCase.execute(this.user_Id).subscribe({
-        next: () => {
-          this.router.navigate(['main']);
-        }
-    });
-  }
+//   deleteUser() {
+//     console.log(this.frmFormulario.get('id')?.value);
+//     console.log ('true' === this.frmFormulario.get('id')?.value);
+//   if ('true' === this.frmFormulario.get('id')?.value) {
+//     this.frmFormulario.get('id')?.setValue(true);
+//   }
+//   else {
+//     this.frmFormulario.get('id')?.setValue(false);
+//   }
+//   this.deleteUserUseCase.execute(this.frmFormulario.getRawValue()).subscribe({
+//     next:(Item) =>{
+//       console.log(Item);
+//       this.router.navigate(['main']);
+//     }
+//   })
+// }
 }
+
+

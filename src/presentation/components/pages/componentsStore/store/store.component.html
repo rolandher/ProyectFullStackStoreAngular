@@ -1,7 +1,7 @@
 <div class="container mt-5">
   <div class="row justify-content-center">
     <div class="col-lg-8">
-      <table class="table table-striped table-bordered">
+      <table class="table table-bordered table-hover table-striped">
         <thead>
           <tr>
             <th>store_Id</th>
@@ -24,7 +24,7 @@
       <h1 class="text-center mb-3">CreateStore</h1>
 
       <form id="createStore" (ngSubmit)="createStore()" [formGroup]="frmFormulario" class="row g-3">
-        <div class="col-md-1">
+        <div class="col-md-3">
           <label for="id_User" class="form-label">Id_User</label>
           <input type="text" class="form-control" id="id_User" name="id_User" formControlName="id_User" required>
           <div class="form-text text-danger" *ngIf="frmFormulario.get('id_User')?.hasError('required') &&

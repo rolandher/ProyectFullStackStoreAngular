@@ -30,8 +30,8 @@ export class UserImplementationRepository extends UserRepository {
         return this.httpClient.put<UserModel>(environment.urladmonStore, user)
     }
 
-    deleteUserAsync(id: string): Observable<string> {
-       return this.httpClient.delete<string>(environment.urladmonStore + '/' + id)
+    deleteUserAsync(id: string): Observable<UserModel> {
+       return this.httpClient.delete<UserModel>(environment.urladmonStore + '/' + id)
 
     }
 

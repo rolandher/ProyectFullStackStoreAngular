@@ -1,19 +1,29 @@
-<ul class="nav-links">
-  <li>
-    <a routerLink="componenteStore" class="nav-link">Store</a>
-  </li>
-  <li>
-    <a routerLink="componenteStore/location" class="nav-link">Location</a>
-  </li>
-  <li>
-    <a routerLink="componenteStore/product" class="nav-link">Product</a>
-  </li>
-  <li>
-    <a routerLink="componenteStore/user" class="nav-link">User</a>
-  </li>
-</ul>
+<div class="options-container">
+  <h2 class="options-title">Options</h2>
 
-<button type="button" (click)="logout()" class="btn btn-info">Logout</button>
+  <ul class="nav-links options-list">
+    <li>
+      <a routerLink="componenteStore/user" class="btn btn-primary">User</a>
+    </li>
+    <li>
+      <a routerLink="componenteStore" class="btn btn-secondary">Store</a>
+    </li>
+    <li>
+      <a routerLink="componenteStore/location" class="btn btn-dark">Location</a>
+    </li>
+    <li>
+      <a routerLink="componenteStore/product" class="btn btn-success">Product</a>
+    </li>
+    <li>
+      <button type="button" (click)="logout()" class="btn btn-danger">Logout</button>
+    </li>
+  </ul>
+</div>
+
+
+
+
+<!-- <button type="button" (click)="logout()" class="btn btn-info">Logout</button> -->
 
 
 
