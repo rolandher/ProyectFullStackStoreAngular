@@ -16,7 +16,8 @@ export class StoreComponent {
   storeList : StoreModel[];
   storeToCreate: NewStoreModel[];
   frmFormulario : FormGroup;
-  hidelist: boolean = false;
+  showMessage: boolean = false;
+  message: string = '';
 
   constructor(private getStoreUseCase: GetStoreProfileUseCase, private createStoreUseCase: CreateStoreProfileUseCase, private router: Router){
     this.storeList = new Array<StoreModel>();
@@ -52,7 +53,7 @@ export class StoreComponent {
         this.router.navigate(['main']);
       },
     });
-    this.hidelist = true;
+
   }
 
   createStore(){
@@ -60,7 +61,14 @@ export class StoreComponent {
     this.createStoreUseCase.execute(this.frmFormulario.getRawValue()).subscribe({
       next:(Item) =>{
         console.log(Item);
-        this.router.navigate(['main']);
+        this.message = 'Store created successfully';
+        this.showMessage = true;
+        this.frmFormulario.reset();
+        setTimeout(() => {
+          this.message = '';
+          this.showMessage = false;
+          this.getStore();
+        }, 3000);
       },
     }
     );

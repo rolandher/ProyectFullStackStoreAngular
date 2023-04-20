@@ -17,6 +17,9 @@ export class LocationComponent  {
   locationList : LocationModel[];
   locationToCreate: NewLocationModel[];
   frmFormulario : FormGroup;
+  showMessage: boolean = false;
+  message: string = '';
+
 
   constructor(private getlocationUseCase: GetLocationProfileUseCase, private createLocationUseCase: CreateLocationProfileUseCase, private router: Router){
     this.locationList = new Array<LocationModel>();
@@ -64,18 +67,17 @@ export class LocationComponent  {
     this.createLocationUseCase.execute(this.frmFormulario.getRawValue()).subscribe({
       next:(Item) =>{
         console.log(Item);
-        this.router.navigate(['main']);
+        this.message = 'Location created successfully';
+        this.showMessage = true;
+        this.frmFormulario.reset();
+        setTimeout(() => {
+          this.message = '';
+          this.showMessage = false;
+          this.getLocation();
+        }, 3000);
       },
     });
   }
-  // getLocationById(){
-  //   console.log(this.frmFormulario.getRawValue())
-  //   this.getByIdLocation.execute(this.frmFormulario.getRawValue()).subscribe({
-  //     next:(Item) =>{
-  //       console.log(Item);
-  //       this.router.navigate(['main']);
-  //     },
-  //   });
 
 
 }

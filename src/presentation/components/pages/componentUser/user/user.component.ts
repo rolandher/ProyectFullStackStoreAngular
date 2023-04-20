@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { timeout } from 'rxjs';
 import { NewUserModel } from 'src/domain/interfaces/userInterface/newUser.model';
 import { UserModel } from 'src/domain/interfaces/userInterface/user.model';
 import { CreateUserProfileUseCase } from 'src/domain/usecases/userCases/create-user-profile.usecase';
@@ -20,6 +21,8 @@ export class UserComponent {
   frmFormulario : FormGroup;
   empty : boolean;
   id?: string;
+  showMessage: boolean = false;
+  message: string = '';
 
 
   constructor(private getUserUseCase: GetUserProfileUseCase ,
@@ -92,7 +95,15 @@ export class UserComponent {
     this.createUserUseCase.execute(this.frmFormulario.getRawValue()).subscribe({
       next:(Item) =>{
         console.log(Item);
-        this.router.navigate(['main']);
+        this.message = 'User created successfully';
+        this.showMessage = true;
+        this.frmFormulario.reset();
+        setTimeout(() => {
+          this.message = '';
+          this.showMessage = false;
+          this.getUser();
+        }, 3000);
+
       }
     })
   }
@@ -102,26 +113,33 @@ export class UserComponent {
     this.updateUserUseCase.execute(this.frmFormulario.getRawValue()).subscribe({
       next:(Item) =>{
         console.log(Item);
-        this.router.navigate(['main']);
+        this.message = 'user updated successfully';
+        this.showMessage = true;
+        this.frmFormulario.reset();
+        setTimeout(() => {
+          this.message = '';
+          this.showMessage = false;
+          this.getUser();
+        }, 3000);
       }
     })
   }
-//   deleteUser() {
-//     console.log(this.frmFormulario.get('id')?.value);
-//     console.log ('true' === this.frmFormulario.get('id')?.value);
-//   if ('true' === this.frmFormulario.get('id')?.value) {
-//     this.frmFormulario.get('id')?.setValue(true);
-//   }
-//   else {
-//     this.frmFormulario.get('id')?.setValue(false);
-//   }
-//   this.deleteUserUseCase.execute(this.frmFormulario.getRawValue()).subscribe({
-//     next:(Item) =>{
-//       console.log(Item);
-//       this.router.navigate(['main']);
-//     }
-//   })
-// }
+  deleteUser() {
+    console.log(this.frmFormulario.get('user_Id')?.value);
+    this.deleteUserUseCase.execute(this.frmFormulario.get('user_Id')?.value).subscribe({
+    next:(Item) =>{
+      console.log(Item);
+        this.message = 'user State successfully';
+        this.showMessage = true;
+        this.frmFormulario.reset();
+        setTimeout(() => {
+          this.message = '';
+          this.showMessage = false;
+          this.getUser();
+        }, 3000);
+    }
+  })
+}
 }
 
 

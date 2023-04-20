@@ -23,7 +23,9 @@ export class ProductComponent {
   productToCreate: NewProductModel[];
   frmFormulario : FormGroup;
   update?: UpdateState;
-  stock? : StockProduct
+  stock? : StockProduct;
+  showMessage: boolean = false;
+  message: string = '';
 
   constructor(private getProductUseCase: GetProductProfileUseCase, private createProductUseCase: CreateProductProfileUseCase,
     private updateStateProfileUseCase: UpdateStateProfileUseCase, private addStockProductProfileUseCase: AddStockProductProfileUseCase,
@@ -97,7 +99,14 @@ export class ProductComponent {
     this.createProductUseCase.execute(this.frmFormulario.getRawValue()).subscribe({
       next:(Item) =>{
         console.log(Item);
-        this.router.navigate(['main']);
+        this.message = 'Product created successfully';
+        this.showMessage = true;
+        this.frmFormulario.reset();
+        setTimeout(() => {
+          this.message = '';
+          this.showMessage = false;
+          this.getProduct();
+        }, 3000);
       },
     }
     );
@@ -112,9 +121,15 @@ export class ProductComponent {
 
     this.updateStateProfileUseCase.execute(this.update
     ).subscribe({
-      next:(Item) =>{
-        console.log(Item);
-        this.router.navigate(['main']);
+      next:(Item) =>{console.log(Item);
+        this.message = 'State updated successfully';
+        this.showMessage = true;
+        this.frmFormulario.reset();
+        setTimeout(() => {
+          this.message = '';
+          this.showMessage = false;
+          this.getProduct();
+        }, 3000);
       },
     });
   }
@@ -127,7 +142,14 @@ export class ProductComponent {
     ).subscribe({
       next:(Item) =>{
         console.log(Item);
-        this.router.navigate(['main']);
+        this.message = 'stock add successfully';
+        this.showMessage = true;
+        this.frmFormulario.reset();
+        setTimeout(() => {
+          this.message = '';
+          this.showMessage = false;
+          this.getProduct();
+        }, 3000);
       },
     });
   }
@@ -138,9 +160,15 @@ export class ProductComponent {
       stock: this.frmFormulario.get('stock')?.value};
     this.subtractStockProductProfileUseCase.execute(this.stock
     ).subscribe({
-      next:(Item) =>{
-        console.log(Item);
-        this.router.navigate(['main']);
+      next:(Item) =>{console.log(Item);
+        this.message = 'stock subtract successfully';
+        this.showMessage = true;
+        this.frmFormulario.reset();
+        setTimeout(() => {
+          this.message = '';
+          this.showMessage = false;
+          this.getProduct();
+        }, 3000);
       },
     });
   }
