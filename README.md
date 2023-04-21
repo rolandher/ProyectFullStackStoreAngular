@@ -7,7 +7,7 @@ Ingreso a la APP:
 
 Main de la APP:
 
-![image](https://user-images.githubusercontent.com/98430956/232625033-49a4ef0e-a3a1-4f24-b2e6-9adf2ffb1e6a.png)
+![image](https://user-images.githubusercontent.com/98430956/233652546-3028c49c-9ffe-4a4a-be63-484312914876.png)
 
 Delivery
 
